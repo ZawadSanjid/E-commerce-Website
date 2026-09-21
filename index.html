@@ -1,0 +1,1055 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>allesio | Luxury Fashion Store</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#0a0a0a',
+                            dark: '#121212',
+                            accent: '#e63946',
+                            gold: '#d4af37'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                        logo: ['Great Vibes', 'cursive'],
+                        sublogo: ['Cinzel', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts for Logo Matching & Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Great+Vibes&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            overflow-x: hidden;
+        }
+
+        .logo-title {
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .logo-tagline {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.15em;
+        }
+
+        /* Glowing background animation for hero section */
+        @keyframes ambientGlow {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.45;
+            }
+
+            50% {
+                transform: translate(-45%, -55%) scale(1.15);
+                opacity: 0.75;
+            }
+
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.45;
+            }
+        }
+
+        .glow-blob-1 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.35) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: ambientGlow 8s infinite ease-in-out;
+            pointer-events: none;
+        }
+
+        .glow-blob-2 {
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(230, 57, 70, 0.25) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            filter: blur(70px);
+            animation: ambientGlow 10s infinite ease-in-out reverse;
+            pointer-events: none;
+        }
+
+        /* Custom Swiper Bullet Styling */
+        .swiper-pagination-bullet-active {
+            background-color: #000000 !important;
+            width: 24px !important;
+            border-radius: 9999px !important;
+        }
+
+        /* Swiper Navigation Buttons Customization */
+        .swiper-button-next, .swiper-button-prev {
+            color: #000000 !important;
+            background: rgba(255, 255, 255, 0.9);
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 50%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+            .swiper-button-next:after, .swiper-button-prev:after {
+                font-size: 18px !important;
+                font-weight: bold;
+            }
+
+            .swiper-button-next:hover, .swiper-button-prev:hover {
+                background: #000000;
+                color: #ffffff !important;
+                transform: scale(1.08);
+            }
+
+        /* Scrollbar custom styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+            ::-webkit-scrollbar-thumb:hover {
+                background: #555;
+            }
+    </style>
+</head>
+<body class="relative min-h-screen flex flex-col">
+
+    <!-- BLACK HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-black text-white border-b border-neutral-800 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+
+            <!-- Left: Logo Display -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="relative flex items-center gap-3">
+                    <!-- IMAGE.png with rounded background for clear view on dark header -->
+                    <div class="p-1 bg-white/95 rounded-full shadow-md flex items-center justify-center overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                        <img src="IMAGE.png" alt="allesio logo" class="h-10 sm:h-12 w-auto object-contain"
+                             onerror="this.style.display='none';">
+                    </div>
+
+                    <!-- Typography with exact font vibe -->
+                    <div class="flex flex-col">
+                        <span class="text-3xl sm:text-4xl logo-title font-normal tracking-wide text-amber-400 group-hover:text-amber-300 transition-colors leading-none">
+                            Allesio
+                        </span>
+                        <span class="text-[9px] sm:text-[10px] logo-tagline text-neutral-300 uppercase tracking-widest mt-0.5">
+                            make yourself more beautiful
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Right: Action Buttons -->
+            <div class="flex items-center gap-2 sm:gap-4">
+                <!-- Sign In -->
+                <button onclick="openAuthModal('signin')" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-neutral-300 hover:text-white transition-colors">
+                    Sign In
+                </button>
+
+                <!-- Sign Up -->
+                <button onclick="openAuthModal('signup')" class="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium bg-white text-black rounded-full hover:bg-neutral-200 transition-all transform hover:scale-105 shadow-sm">
+                    Sign Up
+                </button>
+
+                <!-- Cart Button -->
+                <button onclick="toggleCartDrawer()" class="relative p-2.5 text-neutral-300 hover:text-white transition-colors focus:outline-none rounded-full hover:bg-neutral-800" aria-label="Shopping Cart">
+                    <i data-lucide="shopping-bag" class="w-6 h-6"></i>
+                    <span id="cart-badge" class="absolute top-1 right-1 bg-red-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center transform scale-0 transition-transform duration-300">
+                        0
+                    </span>
+                </button>
+
+                <!-- 3-Dot Menu Button -->
+                <div class="relative">
+                    <button id="menu-dot-btn" onclick="toggleHeaderMenu()" class="p-2.5 text-neutral-300 hover:text-white transition-colors focus:outline-none rounded-full hover:bg-neutral-800" aria-label="Menu Options">
+                        <i data-lucide="more-vertical" class="w-6 h-6"></i>
+                    </button>
+
+                    <!-- Header 3-Dot Dropdown Menu -->
+                    <div id="header-dropdown" class="hidden absolute right-0 mt-3 w-56 bg-neutral-900 text-white rounded-2xl shadow-2xl border border-neutral-800 py-2 z-50 transform origin-top-right transition-all">
+                        <a href="#category-section" onclick="closeHeaderMenu()" class="flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="shirt" class="w-4 h-4 mr-3 text-amber-400"></i> Tops
+                        </a>
+                        <a href="#category-section" onclick="closeHeaderMenu()" class="flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="badge-percent" class="w-4 h-4 mr-3 text-amber-400"></i> Shirt
+                        </a>
+                        <a href="#category-section" onclick="closeHeaderMenu()" class="flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="scissors" class="w-4 h-4 mr-3 text-amber-400"></i> Pant
+                        </a>
+                        <div class="my-1 border-t border-neutral-800"></div>
+                        <a href="#customer-reviews" onclick="closeHeaderMenu()" class="flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="star" class="w-4 h-4 mr-3 text-amber-400"></i> Customers Review
+                        </a>
+                        <div class="sm:hidden border-t border-neutral-800 my-1"></div>
+                        <button onclick="closeHeaderMenu(); openAuthModal('signin');" class="sm:hidden w-full text-left flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="log-in" class="w-4 h-4 mr-3 text-neutral-400"></i> Sign In
+                        </button>
+                        <button onclick="closeHeaderMenu(); openAuthModal('signup');" class="sm:hidden w-full text-left flex items-center px-4 py-3 hover:bg-neutral-800 text-sm font-medium transition-colors">
+                            <i data-lucide="user-plus" class="w-4 h-4 mr-3 text-neutral-400"></i> Sign Up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Glowing BG + Fade on Scroll) -->
+    <section id="hero-section" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-white transition-opacity duration-300">
+        <!-- Ambient Glowing Blobs -->
+        <div class="glow-blob-1"></div>
+        <div class="glow-blob-2"></div>
+
+        <div id="hero-content" class="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto transition-all duration-500 transform">
+            <span class="inline-block text-xs sm:text-sm font-semibold tracking-widest uppercase bg-neutral-100 text-neutral-800 py-1.5 px-4 rounded-full mb-6 border border-neutral-200">
+                New Summer Collection
+            </span>
+            <h1 class="text-5xl sm:text-7xl md:text-8xl font-serif font-bold text-neutral-900 tracking-tight leading-tight mb-4">
+                Welcome to <span class="logo-title text-6xl sm:text-8xl md:text-9xl text-amber-600 font-normal">Allesio</span>
+            </h1>
+            <p class="text-sm sm:text-lg logo-tagline text-neutral-500 font-medium tracking-widest uppercase mb-8">
+                make yourself more beautiful
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#category-section" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-black text-white font-medium rounded-full hover:bg-neutral-800 transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+                    Explore Categories <i data-lucide="arrow-down" class="ml-2 w-4 h-4"></i>
+                </a>
+                <a href="#sale-section" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-transparent text-black border border-black font-medium rounded-full hover:bg-neutral-50 transition-all duration-300">
+                    View Sale Items
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll down indicator icon -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce text-neutral-400">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT CONTAINER (WHITE BACKGROUND) -->
+    <main class="relative z-20 bg-white min-h-screen">
+
+        <!-- 1. CATEGORY SHOWCASE SWIPER -->
+        <section id="category-section" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-neutral-100">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 mb-3">Shop By Category</h2>
+                <p class="text-neutral-500 max-w-md mx-auto">Discover modern essentials curated tailored for your lifestyle</p>
+            </div>
+
+            <div class="swiper categorySwiper pb-12">
+                <div class="swiper-wrapper">
+
+                    <!-- TOPS -->
+                    <div class="swiper-slide">
+                        <div class="relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-neutral-100">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" alt="Tops Category" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span class="text-amber-400 font-semibold text-xs tracking-wider uppercase mb-1">Collection</span>
+                                <h3 class="text-3xl font-serif font-bold text-white mb-4">Tops</h3>
+                                <div>
+                                    <button onclick="scrollToSection('sale-section')" class="inline-flex items-center px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-amber-400 transition-all transform group-hover:translate-x-1 shadow-md">
+                                        Shop Now <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHIRT -->
+                    <div class="swiper-slide">
+                        <div class="relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-neutral-100">
+                            <img src="https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?auto=format&fit=crop&w=800&q=80" alt="Shirts Category" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span class="text-amber-400 font-semibold text-xs tracking-wider uppercase mb-1">Essential</span>
+                                <h3 class="text-3xl font-serif font-bold text-white mb-4">Shirts</h3>
+                                <div>
+                                    <button onclick="scrollToSection('sale-section')" class="inline-flex items-center px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-amber-400 transition-all transform group-hover:translate-x-1 shadow-md">
+                                        Shop Now <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PANT -->
+                    <div class="swiper-slide">
+                        <div class="relative group rounded-3xl overflow-hidden shadow-xl aspect-[4/5] bg-neutral-100">
+                            <img src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=800&q=80" alt="Pants Category" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                                <span class="text-amber-400 font-semibold text-xs tracking-wider uppercase mb-1">Tailored</span>
+                                <h3 class="text-3xl font-serif font-bold text-white mb-4">Pants</h3>
+                                <div>
+                                    <button onclick="scrollToSection('sale-section')" class="inline-flex items-center px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-amber-400 transition-all transform group-hover:translate-x-1 shadow-md">
+                                        Shop Now <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- 2. ITEMS ON SALE SECTION -->
+        <section id="sale-section" class="py-16 bg-neutral-50/50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-widest text-red-600">Limited Time Offers</span>
+                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 mt-1">Items On Sale</h2>
+                    </div>
+                    <p class="text-neutral-500 text-sm mt-2 sm:mt-0">Exclusive price drops on select styles</p>
+                </div>
+
+                <div class="swiper saleSwiper pb-12">
+                    <div class="swiper-wrapper" id="sale-items-container">
+                        <!-- Rendered by JS -->
+                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. TOP SELLING ITEMS SECTION -->
+        <section id="top-selling-section" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-amber-600">Customer Favorites</span>
+                    <h2 class="text-3xl sm:text-4xl font-serif font-bold text-neutral-900 mt-1">Top Selling Items</h2>
+                </div>
+                <p class="text-neutral-500 text-sm mt-2 sm:mt-0">Our most coveted pieces, crafted to perfection</p>
+            </div>
+
+            <div class="swiper topSellingSwiper pb-12">
+                <div class="swiper-wrapper" id="top-selling-items-container">
+                    <!-- Rendered by JS -->
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </section>
+
+        <!-- 4. CUSTOMER REVIEWS SECTION -->
+        <section id="customer-reviews" class="py-20 bg-neutral-900 text-white my-12 rounded-3xl max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-amber-400 text-xs font-bold uppercase tracking-widest">Testimonials</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1">Customer Reviews</h2>
+                <p class="text-neutral-400 text-sm mt-2">See what fashion lovers are saying about allesio</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-neutral-800/60 p-6 rounded-2xl border border-neutral-700/50 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                            "The quality of the silk shirt I ordered exceeded my expectations. Fast shipping and impeccable packaging. Allesio is definitely my new go-to store!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">
+                            SA
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-white">Sarah Ahmed</h4>
+                            <span class="text-xs text-neutral-400">Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-neutral-800/60 p-6 rounded-2xl border border-neutral-700/50 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                            "The tailored pants fit like a glove! Exceptional fabric texture and stitching. Will definitely purchase again very soon."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">
+                            RK
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-white">Rafi Khan</h4>
+                            <span class="text-xs text-neutral-400">Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-neutral-800/60 p-6 rounded-2xl border border-neutral-700/50 flex flex-col justify-between">
+                    <div>
+                        <div class="flex text-amber-400 gap-1 mb-4">
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+                        </div>
+                        <p class="text-neutral-300 italic text-sm leading-relaxed mb-6">
+                            "Allesio's tops collection is so elegant. Seamless customer experience and super soft material!"
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/20 text-amber-400 font-bold flex items-center justify-center">
+                            MA
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-sm text-white">Mariam Ali</h4>
+                            <span class="text-xs text-neutral-400">Verified Buyer</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- BLACK FOOTER -->
+    <footer class="bg-black text-white border-t border-neutral-800 mt-auto pt-16 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-12 border-b border-neutral-800">
+
+                <!-- Col 1: Logo & Brand statement -->
+                <div class="md:col-span-1 space-y-4">
+                    <a href="#" class="inline-block">
+                        <div class="relative flex items-center gap-3">
+                            <div class="p-1 bg-white/95 rounded-full shadow-md flex items-center justify-center overflow-hidden">
+                                <img src="IMAGE.png" alt="allesio logo" class="h-10 sm:h-12 w-auto object-contain"
+                                     onerror="this.style.display='none';">
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-3xl sm:text-4xl logo-title font-normal text-amber-400 leading-none">
+                                    Allesio
+                                </span>
+                                <span class="text-[9px] logo-tagline text-neutral-400 uppercase tracking-widest mt-0.5">
+                                    make yourself more beautiful
+                                </span>
+                            </div>
+                        </div>
+                    </a>
+                    <p class="text-neutral-400 text-sm leading-relaxed">
+                        Defining modern luxury with understated elegance and high-craftsmanship clothing collections.
+                    </p>
+                </div>
+
+                <!-- Col 2: Categories Dropdown / Menu -->
+                <div>
+                    <h3 class="text-sm font-semibold text-neutral-200 uppercase tracking-wider mb-4">Explore</h3>
+                    <div class="space-y-3">
+                        <!-- Footer Categories Dropdown Toggle Button -->
+                        <div class="relative">
+                            <button id="footer-cat-btn" onclick="toggleFooterCategoryDropdown()" class="w-full flex items-center justify-between px-4 py-2.5 bg-neutral-900 rounded-xl border border-neutral-800 text-sm text-neutral-300 hover:text-white transition-colors">
+                                <span class="font-medium">Categories</span>
+                                <i data-lucide="chevron-down" id="footer-cat-chevron" class="w-4 h-4 transition-transform duration-300"></i>
+                            </button>
+
+                            <!-- Collapsible Categories List -->
+                            <div id="footer-cat-menu" class="hidden mt-2 bg-neutral-900 border border-neutral-800 rounded-xl py-2 space-y-1 shadow-lg">
+                                <a href="#category-section" class="block px-4 py-2 text-sm text-neutral-400 hover:text-amber-400 hover:bg-neutral-800 transition-colors">
+                                    Tops
+                                </a>
+                                <a href="#category-section" class="block px-4 py-2 text-sm text-neutral-400 hover:text-amber-400 hover:bg-neutral-800 transition-colors">
+                                    Pants
+                                </a>
+                                <a href="#category-section" class="block px-4 py-2 text-sm text-neutral-400 hover:text-amber-400 hover:bg-neutral-800 transition-colors">
+                                    Shirts
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Customer Reviews Footer Link Button -->
+                        <a href="#customer-reviews" class="inline-flex items-center px-4 py-2.5 w-full bg-neutral-900 rounded-xl border border-neutral-800 text-sm text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors">
+                            <i data-lucide="star" class="w-4 h-4 mr-2 text-amber-400"></i> Customer Reviews
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Col 3: Customer Care -->
+                <div>
+                    <h3 class="text-sm font-semibold text-neutral-200 uppercase tracking-wider mb-4">Help & Info</h3>
+                    <ul class="space-y-2.5 text-sm text-neutral-400">
+                        <li><a href="#" class="hover:text-white transition-colors">Order Tracking</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h3 class="text-sm font-semibold text-neutral-200 uppercase tracking-wider mb-4">Stay Connected</h3>
+                    <p class="text-neutral-400 text-xs mb-3">Subscribe to get special offers & updates.</p>
+                    <form onsubmit="event.preventDefault(); showToast('Subscribed successfully!');" class="flex gap-2">
+                        <input type="email" placeholder="Your email address" required class="w-full px-3 py-2 bg-neutral-900 border border-neutral-800 rounded-lg text-sm text-white placeholder-neutral-500 focus:outline-none focus:border-neutral-600">
+                        <button type="submit" class="px-4 py-2 bg-white text-black font-semibold text-sm rounded-lg hover:bg-neutral-200 transition-colors">
+                            Join
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Credits -->
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-neutral-500 gap-4">
+                <p>All rights reserved by <span class="text-neutral-300 font-semibold">allesio</span> &copy; 2026</p>
+                <p class="flex items-center gap-1">
+                    Developed by <span class="text-neutral-200 font-medium">Zawadullah Bhuiyan</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SHOPPING CART DRAWER -->
+    <div id="cart-drawer-overlay" onclick="toggleCartDrawer()" class="fixed inset-0 bg-black/60 z-50 opacity-0 pointer-events-none transition-opacity duration-300"></div>
+    <div id="cart-drawer" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white z-50 shadow-2xl transform translate-x-full transition-transform duration-300 flex flex-col">
+        <!-- Cart Header -->
+        <div class="p-5 bg-black text-white flex items-center justify-between border-b border-neutral-800">
+            <div class="flex items-center gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5 text-amber-400"></i>
+                <h3 class="font-bold text-lg">Your Cart</h3>
+            </div>
+            <button onclick="toggleCartDrawer()" class="p-1 hover:bg-neutral-800 rounded-lg text-neutral-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+        </div>
+
+        <!-- Cart Items List -->
+        <div id="cart-items-list" class="flex-1 overflow-y-auto p-5 space-y-4">
+            <!-- Rendered via JS -->
+        </div>
+
+        <!-- Cart Footer -->
+        <div class="p-5 border-t border-neutral-200 bg-neutral-50 space-y-4">
+            <div class="flex justify-between items-center text-neutral-600 text-sm">
+                <span>Subtotal</span>
+                <span id="cart-subtotal" class="font-bold text-neutral-900 text-lg">$0.00</span>
+            </div>
+            <p class="text-xs text-neutral-400">Taxes and shipping calculated at checkout.</p>
+            <button onclick="checkoutCart()" class="w-full py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-neutral-800 transition-all flex items-center justify-center gap-2 shadow-lg">
+                Checkout Now <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- AUTH MODAL -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+        <div class="bg-white rounded-3xl p-8 max-w-md w-full relative shadow-2xl transform scale-95 transition-transform duration-300">
+            <button onclick="closeAuthModal()" class="absolute top-5 right-5 text-neutral-400 hover:text-black">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="text-center mb-6">
+                <h3 id="modal-title" class="text-2xl font-serif font-bold text-neutral-900">Sign In</h3>
+                <p class="text-neutral-500 text-sm mt-1">Welcome back to allesio</p>
+            </div>
+
+            <form onsubmit="handleAuthSubmit(event)" class="space-y-4">
+                <div id="name-field-group" class="hidden">
+                    <label class="block text-xs font-semibold uppercase text-neutral-600 mb-1">Full Name</label>
+                    <input type="text" placeholder="John Doe" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-neutral-600 mb-1">Email Address</label>
+                    <input type="email" required placeholder="yourname@example.com" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase text-neutral-600 mb-1">Password</label>
+                    <input type="password" required placeholder="••••••••" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-black">
+                </div>
+
+                <button type="submit" id="modal-submit-btn" class="w-full py-3.5 bg-black text-white font-semibold rounded-xl hover:bg-neutral-800 transition-colors shadow-md mt-2">
+                    Sign In
+                </button>
+            </form>
+
+            <div class="text-center mt-6 text-sm text-neutral-500">
+                <span id="modal-toggle-text">Don't have an account?</span>
+                <button onclick="toggleAuthType()" id="modal-toggle-btn" class="text-black font-semibold underline ml-1">
+                    Sign Up
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toast-container" class="fixed bottom-6 right-6 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <script>
+        const itemsOnSale = [
+            {
+                id: 's1',
+                name: 'Silk Blend Casual Top',
+                price: 49.99,
+                originalPrice: 79.99,
+                image: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=600&q=80',
+                badge: '38% OFF'
+            },
+            {
+                id: 's2',
+                name: 'Linen Button-Down Shirt',
+                price: 59.99,
+                originalPrice: 89.99,
+                image: 'https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=600&q=80',
+                badge: '33% OFF'
+            },
+            {
+                id: 's3',
+                name: 'Slim Fit Pleated Pant',
+                price: 69.99,
+                originalPrice: 110.00,
+                image: 'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?auto=format&fit=crop&w=600&q=80',
+                badge: '36% OFF'
+            },
+            {
+                id: 's4',
+                name: 'Oversized Vintage Shirt',
+                price: 45.00,
+                originalPrice: 65.00,
+                image: 'https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=600&q=80',
+                badge: '30% OFF'
+            }
+        ];
+
+        const topSellingItems = [
+            {
+                id: 't1',
+                name: 'allesio Signature Blazer Shirt',
+                price: 129.99,
+                image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 't2',
+                name: 'High-Waist Chino Pant',
+                price: 89.99,
+                image: 'https://images.unsplash.com/photo-1506629082955-511b1aa562c8?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 't3',
+                name: 'Minimalist Satin Knit Top',
+                price: 64.99,
+                image: 'https://images.unsplash.com/photo-1551803091-e20673f15770?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 't4',
+                name: 'Classic Oxford Cotton Shirt',
+                price: 79.99,
+                image: 'https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        let cart = [];
+        let authMode = 'signin';
+
+        window.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons
+            lucide.createIcons();
+
+            // Render Product Cards
+            renderSaleItems();
+            renderTopSellingItems();
+
+            // Initialize Swiper Instances
+            initSwipers();
+
+            // Initialize Scroll Fade Animation for Hero Section
+            initHeroScrollEffect();
+
+            // Click outside handler to close dropdowns
+            document.addEventListener('click', (e) => {
+                const headerDropdown = document.getElementById('header-dropdown');
+                const menuBtn = document.getElementById('menu-dot-btn');
+                if (headerDropdown && !headerDropdown.contains(e.target) && !menuBtn.contains(e.target)) {
+                    headerDropdown.classList.add('hidden');
+                }
+            });
+        });
+
+        function initSwipers() {
+            // Category Showcase Swiper
+            new Swiper('.categorySwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.categorySwiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 24 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 }
+                }
+            });
+
+            // Items On Sale Swiper
+            new Swiper('.saleSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: false,
+                navigation: {
+                    nextEl: '.saleSwiper .swiper-button-next',
+                    prevEl: '.saleSwiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.saleSwiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 24 },
+                    1280: { slidesPerView: 4, spaceBetween: 24 }
+                }
+            });
+
+            // Top Selling Swiper
+            new Swiper('.topSellingSwiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: false,
+                navigation: {
+                    nextEl: '.topSellingSwiper .swiper-button-next',
+                    prevEl: '.topSellingSwiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.topSellingSwiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 24 },
+                    1280: { slidesPerView: 4, spaceBetween: 24 }
+                }
+            });
+        }
+
+        function initHeroScrollEffect() {
+            const heroSection = document.getElementById('hero-section');
+            const heroContent = document.getElementById('hero-content');
+
+            window.addEventListener('scroll', () => {
+                const scrollPosition = window.scrollY;
+                const windowHeight = window.innerHeight;
+
+                // Calculate opacity ratio based on scroll progress
+                let opacity = 1 - (scrollPosition / (windowHeight * 0.55));
+                if (opacity < 0) opacity = 0;
+
+                heroContent.style.opacity = opacity;
+                heroContent.style.transform = `translateY(${scrollPosition * 0.25}px)`;
+
+                if (opacity === 0) {
+                    heroSection.style.pointerEvents = 'none';
+                } else {
+                    heroSection.style.pointerEvents = 'auto';
+                }
+            });
+        }
+
+        function renderSaleItems() {
+            const container = document.getElementById('sale-items-container');
+            container.innerHTML = itemsOnSale.map(item => `
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-2xl overflow-hidden border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                            <div class="relative aspect-square overflow-hidden bg-neutral-100">
+                                <span class="absolute top-3 left-3 z-10 bg-red-600 text-white text-[11px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                                    ${item.badge}
+                                </span>
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-neutral-900 text-base mb-2 group-hover:text-amber-600 transition-colors">${item.name}</h3>
+                                    <div class="flex items-baseline gap-2 mb-4">
+                                        <span class="text-lg font-bold text-neutral-900">$${item.price.toFixed(2)}</span>
+                                        <span class="text-sm text-neutral-400 line-through">$${item.originalPrice.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                                <button onclick="addToCart('${item.id}', '${item.name}', ${item.price}, '${item.image}')" class="w-full py-2.5 bg-black text-white text-sm font-medium rounded-xl hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        function renderTopSellingItems() {
+            const container = document.getElementById('top-selling-items-container');
+            container.innerHTML = topSellingItems.map(item => `
+                    <div class="swiper-slide">
+                        <div class="bg-white rounded-2xl overflow-hidden border border-neutral-100 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                            <div class="relative aspect-square overflow-hidden bg-neutral-100">
+                                <img src="${item.image}" alt="${item.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                            </div>
+                            <div class="p-5 flex flex-col flex-1 justify-between">
+                                <div>
+                                    <h3 class="font-semibold text-neutral-900 text-base mb-2 group-hover:text-amber-600 transition-colors">${item.name}</h3>
+                                    <div class="flex items-baseline gap-2 mb-4">
+                                        <span class="text-lg font-bold text-neutral-900">$${item.price.toFixed(2)}</span>
+                                    </div>
+                                </div>
+                                <button onclick="addToCart('${item.id}', '${item.name}', ${item.price}, '${item.image}')" class="w-full py-2.5 bg-black text-white text-sm font-medium rounded-xl hover:bg-neutral-800 transition-colors flex items-center justify-center gap-2 shadow-sm">
+                                    <i data-lucide="shopping-bag" class="w-4 h-4"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+        }
+
+        function addToCart(id, name, price, image) {
+            const existingIndex = cart.findIndex(i => i.id === id);
+            if (existingIndex > -1) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({ id, name, price, image, quantity: 1 });
+            }
+            updateCartUI();
+            showToast(`Added "${name}" to cart`);
+        }
+
+        function updateQuantity(id, change) {
+            const index = cart.findIndex(i => i.id === id);
+            if (index > -1) {
+                cart[index].quantity += change;
+                if (cart[index].quantity <= 0) {
+                    cart.splice(index, 1);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartItemsList = document.getElementById('cart-items-list');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            cartBadge.textContent = totalItems;
+            if (totalItems > 0) {
+                cartBadge.classList.remove('scale-0');
+                cartBadge.classList.add('scale-100');
+            } else {
+                cartBadge.classList.remove('scale-100');
+                cartBadge.classList.add('scale-0');
+            }
+
+            cartSubtotal.textContent = `$${totalPrice.toFixed(2)}`;
+
+            if (cart.length === 0) {
+                cartItemsList.innerHTML = `
+                        <div class="h-full flex flex-col items-center justify-center text-center p-6 text-neutral-400">
+                            <i data-lucide="shopping-bag" class="w-16 h-16 mb-4 stroke-1"></i>
+                            <p class="text-base font-medium text-neutral-700">Your shopping cart is empty</p>
+                            <p class="text-xs mt-1">Add items from our collection to get started.</p>
+                        </div>
+                    `;
+            } else {
+                cartItemsList.innerHTML = cart.map(item => `
+                        <div class="flex items-center gap-4 bg-neutral-50 p-3 rounded-2xl border border-neutral-100">
+                            <img src="${item.image}" alt="${item.name}" class="w-16 h-16 object-cover rounded-xl bg-neutral-200">
+                            <div class="flex-1">
+                                <h4 class="text-sm font-semibold text-neutral-900 line-clamp-1">${item.name}</h4>
+                                <p class="text-xs text-neutral-500 mt-0.5">$${item.price.toFixed(2)}</p>
+                                <div class="flex items-center gap-3 mt-2">
+                                    <button onclick="updateQuantity('${item.id}', -1)" class="w-6 h-6 rounded-md bg-white border border-neutral-200 flex items-center justify-center text-xs font-bold hover:bg-neutral-100">
+                                        -
+                                    </button>
+                                    <span class="text-xs font-semibold">${item.quantity}</span>
+                                    <button onclick="updateQuantity('${item.id}', 1)" class="w-6 h-6 rounded-md bg-white border border-neutral-200 flex items-center justify-center text-xs font-bold hover:bg-neutral-100">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                            <button onclick="updateQuantity('${item.id}', -${item.quantity})" class="p-1.5 text-neutral-400 hover:text-red-500">
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>
+                            </button>
+                        </div>
+                    `).join('');
+            }
+
+            lucide.createIcons();
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const overlay = document.getElementById('cart-drawer-overlay');
+
+            const isOpen = !drawer.classList.contains('translate-x-full');
+            if (isOpen) {
+                drawer.classList.add('translate-x-full');
+                overlay.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('opacity-0', 'pointer-events-none');
+            }
+        }
+
+        function checkoutCart() {
+            if (cart.length === 0) {
+                showToast('Your cart is empty');
+                return;
+            }
+            showToast('Order placed successfully! Thank you for choosing allesio.');
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+        }
+
+        function toggleHeaderMenu() {
+            const dropdown = document.getElementById('header-dropdown');
+            dropdown.classList.toggle('hidden');
+        }
+
+        function closeHeaderMenu() {
+            const dropdown = document.getElementById('header-dropdown');
+            dropdown.classList.add('hidden');
+        }
+
+        function toggleFooterCategoryDropdown() {
+            const menu = document.getElementById('footer-cat-menu');
+            const chevron = document.getElementById('footer-cat-chevron');
+
+            menu.classList.toggle('hidden');
+            chevron.classList.toggle('rotate-180');
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function openAuthModal(mode) {
+            authMode = mode;
+            const modal = document.getElementById('auth-modal');
+            const title = document.getElementById('modal-title');
+            const submitBtn = document.getElementById('modal-submit-btn');
+            const nameGroup = document.getElementById('name-field-group');
+            const toggleText = document.getElementById('modal-toggle-text');
+            const toggleBtn = document.getElementById('modal-toggle-btn');
+
+            if (mode === 'signup') {
+                title.textContent = 'Create Account';
+                submitBtn.textContent = 'Sign Up';
+                nameGroup.classList.remove('hidden');
+                toggleText.textContent = 'Already have an account?';
+                toggleBtn.textContent = 'Sign In';
+            } else {
+                title.textContent = 'Sign In';
+                submitBtn.textContent = 'Sign In';
+                nameGroup.classList.add('hidden');
+                toggleText.textContent = "Don't have an account?";
+                toggleBtn.textContent = 'Sign Up';
+            }
+
+            modal.classList.remove('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.remove('scale-95');
+            modal.children[0].classList.add('scale-100');
+        }
+
+        function closeAuthModal() {
+            const modal = document.getElementById('auth-modal');
+            modal.classList.add('opacity-0', 'pointer-events-none');
+            modal.children[0].classList.remove('scale-100');
+            modal.children[0].classList.add('scale-95');
+        }
+
+        function toggleAuthType() {
+            openAuthModal(authMode === 'signin' ? 'signup' : 'signin');
+        }
+
+        function handleAuthSubmit(e) {
+            e.preventDefault();
+            closeAuthModal();
+            showToast(authMode === 'signin' ? 'Signed in successfully!' : 'Account created successfully!');
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'bg-black text-white px-5 py-3 rounded-2xl shadow-2xl border border-neutral-800 text-sm font-medium flex items-center gap-3 transform translate-y-4 opacity-0 transition-all duration-300 pointer-events-auto';
+            toast.innerHTML = `
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-amber-400"></i>
+                    <span>${message}</span>
+                `;
+
+            container.appendChild(toast);
+            lucide.createIcons();
+
+            setTimeout(() => {
+                toast.classList.remove('translate-y-4', 'opacity-0');
+            }, 10);
+
+            setTimeout(() => {
+                toast.classList.add('translate-y-4', 'opacity-0');
+                setTimeout(() => toast.remove(), 300);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
